@@ -13,4 +13,6 @@ def get_quotes():
         get_quotes_data = url.read()
         get_quotes_response = json.loads(get_quotes_data)
 
-        quotes_results = None
+        author = (get_quotes_response[0]['author'])
+        quote = (get_quotes_response[0]['quote'])
+    return author,quote
