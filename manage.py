@@ -23,7 +23,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    posts = PostedBlog.query.all()
+    posts = PostedBlog.query.order_by(PostedBlog.date_of_post.desc()).all()
     # quotes = get_quotes()
     title = 'Home: Welcome to my blog'
     return render_template('index.html', title = title, posts=posts)
