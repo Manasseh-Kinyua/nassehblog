@@ -30,7 +30,10 @@ def index():
 @app.route('/post/<int:post_id>')
 def post(post_id):
     post = PostedBlog.query.filter_by(id=post_id).one()
-    return render_template('post.html', post=post)
+
+    date_of_post = post.date_of_post.strftime('%b %d, %y')
+
+    return render_template('post.html', post=post, date_of_post=date_of_post)
 
 
 @app.route('/about')

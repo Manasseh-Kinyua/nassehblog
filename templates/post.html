@@ -2,15 +2,13 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/post.css') }}">
-{% endblock %}
-
-<div class="head">
-
-</div>
-
+    <link rel="stylesheet" href="{{url_for('static',filename='css/post.css')}}">
+  {% endblock %}
 
 {% block content %}
+<div class="head" >
+    <h1>{{ post.title }}</h1>
+</div>
     {{ post.title }}
     {{ post.subtitle }}
     {{ post.author }}
