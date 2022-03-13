@@ -2,6 +2,10 @@ from flask import Flask,render_template,request,redirect,url_for
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import urllib.request,json
+# from .models import Quotes
+# from .request import get_quotes
+
 
 app = Flask(__name__)
 
@@ -17,16 +21,41 @@ class PostedBlog(db.Model):
     date_of_post = db.Column(db.DateTime)
     blog_content = db.Column(db.Text)
 
+class Quotes:
+    def __init__(self, author, quote):
+        self.author = author
+        self.quote = quote
+
 
 #initialize flask extensions
 bootstrap = Bootstrap(app)
 
+base_url = 'http://quotes.stormconsultancy.co.uk/random.json'
+
+def get_quotes():
+    get_quotes_url = base_url.format()
+
+    with urllib.request.urlopen(get_quotes_url) as url:
+        get_quotes_data = url.read()
+        get_quotes_response = json.loads(get_quotes_data)
+
+        quote_obj = None
+        if get_quotes_response:
+            author = get_quotes_response.get('author')
+            quote = get_quotes_response.get('quote')
+
+            quote_obj = Quotes(author,quote)
+
+    return quote_obj
+
+
+
 @app.route('/')
 def index():
     posts = PostedBlog.query.order_by(PostedBlog.date_of_post.desc()).all()
-    # quotes = get_quotes()
+    quotes = get_quotes()
     title = 'Home: Welcome to my blog'
-    return render_template('index.html', title = title, posts=posts)
+    return render_template('index.html', title = title, posts=posts, quotes=quotes)
 
 @app.route('/post/<int:post_id>')
 def post(post_id):

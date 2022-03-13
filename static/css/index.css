@@ -1,0 +1,8 @@
+.head {
+    background-image: url('../img/homebg.jpeg');
+    width: 100%;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
