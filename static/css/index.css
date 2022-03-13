@@ -6,6 +6,13 @@
     background-size: cover;
     text-align: center;
 }
+
+.head h1 {
+    font-family: 'Sofia';
+    font-size: 40px;
+    color: aliceblue;
+    font-weight: bold;
+}
 .blog-link {
     text-align: center;
     padding: 20px 0;
