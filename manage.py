@@ -8,6 +8,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///home/nasseh/Python-Flask/nassehblog/myblog.db'
 db = SQLAlchemy(app)
 
+class PostedBlog(db.Model):
+    id = db.column(db.Integer, primary_key = True)
+    
+
 
 #initialize flask extensions
 bootstrap = Bootstrap(app)
