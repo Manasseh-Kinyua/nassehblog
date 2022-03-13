@@ -10,7 +10,10 @@ db = SQLAlchemy(app)
 
 class PostedBlog(db.Model):
     id = db.column(db.Integer, primary_key = True)
-    
+    title = db.Column(db.String(50))
+    subtitle = db.Column(db.string(100))
+    date_of_post = db.Column(db.DateTime)
+    blog_content = db.Column(db.Text)
 
 
 #initialize flask extensions
