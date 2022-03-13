@@ -23,6 +23,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
+    
     # quotes = get_quotes()
     title = 'Home: Welcome to my blog'
     return render_template('index.html', title = title)
