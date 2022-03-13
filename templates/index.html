@@ -13,6 +13,18 @@
     {% endif %}
 </head>
 <body>
-    
+    {% block content %}
+        <div class="container">
+            {% for post in posts %}
+            <div class="blog-link">
+                <a href="{{ url_for('post', post_id=post.id) }}">
+                    <h2>{{ post.title }}</h2>
+                    <h4>{{ post.subtitle }} </h4>
+                </a>
+                <p>Posted by <span>{{ post.author }}</span> on <span>{{ post.date_of_post.strftime('%b %d, %y') }} </span></p>
+            </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
 </body>
 </html>

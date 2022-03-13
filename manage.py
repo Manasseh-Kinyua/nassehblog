@@ -23,10 +23,10 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    
+    posts = PostedBlog.query.all()
     # quotes = get_quotes()
     title = 'Home: Welcome to my blog'
-    return render_template('index.html', title = title)
+    return render_template('index.html', title = title, posts=posts)
 
 @app.route('/post/<int:post_id>')
 def post(post_id):
