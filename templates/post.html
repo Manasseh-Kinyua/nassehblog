@@ -1,4 +1,22 @@
-{{ post.title }}
-{{ post.subtitle }}
-{{ post.author }}
-{{ post.blog_content }}
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/post.css') }}">
+{% endblock %}
+
+<div class="head">
+
+</div>
+
+
+{% block content %}
+    {{ post.title }}
+    {{ post.subtitle }}
+    {{ post.author }}
+    {{ post.blog_content }}
+    {{ post.date_of_post }}
+{% endblock %}
+
+
+
