@@ -12,7 +12,7 @@ app = Flask(__name__)
 #setting up configurations
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/nasseh/Python-Flask/nassehblog/myblog.db'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nwuxebpglulhwp:0955a892af88faaa6ab6ef03da81e3e846d32b86b83b3c215ae417e6b6ccebd8@ec2-54-224-120-186.compute-1.amazonaws.com:5432/dctjb313qu3sen'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://nwuxebpglulhwp:0955a892af88faaa6ab6ef03da81e3e846d32b86b83b3c215ae417e6b6ccebd8@ec2-54-224-120-186.compute-1.amazonaws.com:5432/dctjb313qu3sen'
 
 
 db = SQLAlchemy(app)
